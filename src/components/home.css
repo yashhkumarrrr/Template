@@ -19,38 +19,62 @@
 /* Header */
 
 .header-light {
-    width: 100vw;
     height: 55px;
+    padding-left: 7%;
     z-index: 1000;
     display: flex;
     position: fixed;
     user-select: none;
     align-items: center;
+    width: calc(100vw - 7%);
     background-color: #ffffff;
     justify-content: space-between;
     box-shadow: 0px 2px 10px #00000020;
 }
 
 .header-dark {
-    width: 100vw;
     height: 55px;
+    padding-left: 7%;
     z-index: 1000;
     display: flex;
     position: fixed;
     user-select: none;
     align-items: center;
+    width: calc(100vw - 7%);
     background-color: #000000;
     justify-content: space-between;
     box-shadow: 0px 2px 10px #ffffff20;
 }
 
-.header-img {
-    height: 75%;
-    margin-left: 10%;
+.header-logo-link-light {
+    color: #373737;
+    text-decoration: none;
+}
+
+.header-logo-link-dark {
+    color: #c8c8c8;
+    text-decoration: none;
 }
 
 .header-logo {
-    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo-div {
+    height: 45px;
+}
+
+.header-img {
+    height: 45px;
+}
+
+.header-logo-name {
+    font-size: 1.3rem;
+    margin-left: 10px;
+    padding-bottom: 5px;
+    font-family: 'Audiowide';
 }
 
 .header-btns {
@@ -73,6 +97,12 @@
 
 #header-toggle-mode-btn {
     margin: 0;
+}
+
+@media (max-width: 500px) {
+    .header-logo-name {
+        display: none;
+    }
 }
 
 /* Feedback Drawer */
@@ -293,7 +323,7 @@
 .footer {
     padding: 3px;
     font-weight: 300;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     text-align: center;
     font-family: 'Poppins';
 }

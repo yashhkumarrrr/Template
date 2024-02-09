@@ -4,8 +4,6 @@ import * as yup from 'yup';
 import * as React from 'react';
 import { useFormik } from 'formik';
 import Box from '@mui/material/Box';
-import Zoom from '@mui/material/Zoom';
-import { Tooltip } from '@mui/material';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import Switch from '@mui/material/Switch';
@@ -54,7 +52,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         },
     },
     '& .MuiSwitch-thumb': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#77589B' : '#ff2c2c',
+        backgroundColor: theme.palette.mode === 'dark' ? '#77589B' : '#191970',
         width: 32,
         height: 32,
         '&::before': {
@@ -149,19 +147,26 @@ function Home(props) {
                 {/* Header */}
 
                 <div className={`header-${props.isDark ? 'dark' : 'light'}`}>
-                    <div className='header-img'>
-                        <Tooltip TransitionComponent={Zoom} title="Template">
-                            <Link
-                                to='#'
-                                aria-label="Home"
-                            >
-                                <img
-                                    alt='Logo'
-                                    src={logo}
-                                    className='header-logo'
-                                />
-                            </Link>
-                        </Tooltip>
+                    <div>
+                        <Link
+                            to='#'
+                            aria-label="Home"
+                            className={`header-logo-link-${props.isDark ? 'dark' : 'light'}`}
+                        >
+                            <div className='header-logo'>
+                                <div className='header-logo-div'>
+                                    <img
+                                        alt='Logo'
+                                        src={logo}
+                                        className='header-img'
+                                    />
+                                </div>
+
+                                <div className='header-logo-name'>
+                                    Template
+                                </div>
+                            </div>
+                        </Link>
                     </div>
 
                     <div className='header-btns'>
