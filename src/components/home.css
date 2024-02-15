@@ -20,10 +20,10 @@
 
 .header-light {
     height: 55px;
-    padding-left: 7%;
     z-index: 1000;
     display: flex;
     position: fixed;
+    padding-left: 7%;
     user-select: none;
     align-items: center;
     width: calc(100vw - 7%);
@@ -34,10 +34,10 @@
 
 .header-dark {
     height: 55px;
-    padding-left: 7%;
     z-index: 1000;
     display: flex;
     position: fixed;
+    padding-left: 7%;
     user-select: none;
     align-items: center;
     width: calc(100vw - 7%);
@@ -322,13 +322,16 @@
 
 .footer {
     padding: 3px;
-    font-weight: 300;
     font-size: 0.95rem;
     text-align: center;
-    font-family: 'Poppins';
 }
 
-#footer-link {
-    color: #ff0000;
+#footer-link-light {
+    color: #373737;
+    text-decoration: none;
+}
+
+#footer-link-dark {
+    color: #c8c8c8;
     text-decoration: none;
 }

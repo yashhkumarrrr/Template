@@ -52,7 +52,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         },
     },
     '& .MuiSwitch-thumb': {
-        backgroundColor: theme.palette.mode === 'dark' ? '#77589B' : '#191970',
+        backgroundColor: theme.palette.mode === 'dark' ? '#77589B' : '#1d74c6',
         width: 32,
         height: 32,
         '&::before': {
@@ -413,19 +413,19 @@ function Home(props) {
                 {/* Body */}
 
                 <div id='home'>
-
+                    
                 </div>
 
                 {/* Footer */}
 
                 <div className='footer'>
-                    Developed by -&nbsp;
+                    Developed by&nbsp;
                     <Link
                         target='_blank'
-                        id='footer-link'
+                        id={`footer-link-${props.isDark ? 'dark' : 'light'}`}
                         to='https://yashhkumarrrr.netlify.app'
                     >
-                        Yash
+                        &copy; yashhkumarrrr
                     </Link>
                 </div>
 
