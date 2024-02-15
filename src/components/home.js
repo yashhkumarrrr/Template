@@ -4,17 +4,19 @@ import * as yup from 'yup';
 import * as React from 'react';
 import { useFormik } from 'formik';
 import Box from '@mui/material/Box';
+import Zoom from '@mui/material/Zoom';
 import { Link } from 'react-router-dom';
 import Drawer from '@mui/material/Drawer';
 import Switch from '@mui/material/Switch';
 import MuiAlert from '@mui/material/Alert';
+import Tooltip from '@mui/material/Tooltip';
 import { useState, forwardRef } from 'react';
 import Snackbar from '@mui/material/Snackbar';
-import { styled } from '@mui/material/styles';
 import CloseIcon from '@mui/icons-material/Close';
 import IconButton from '@mui/material/IconButton';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import LightbulbOutlinedIcon from '@mui/icons-material/LightbulbOutlined';
 import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import ReportProblemOutlinedIcon from '@mui/icons-material/ReportProblemOutlined';
@@ -77,8 +79,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
 function Home(props) {
 
     const appName = 'Template'
-    const logo = require('./images/logo.webp')
-    const report = require('./images/report.webp')
+    const logo = require('./files/logo.webp')
+    const report = require('./files/report.webp')
 
     const [state, setState] = useState({ right: false })
     const [feedbackType, setFeedbackType] = useState('')
@@ -140,6 +142,13 @@ function Home(props) {
         },
     });
 
+    const theme = createTheme({
+        typography: {
+            fontSize: 14,
+            fontFamily: 'Poppins'
+        },
+    });
+
     return (
         <>
             <div className={`body-${props.isDark ? 'dark' : 'light'}`}>
@@ -172,15 +181,20 @@ function Home(props) {
                     <div className='header-btns'>
                         <div className='feedback-icon-div'>
                             <React.Fragment>
-                                <IconButton
-                                    aria-label='Provide Feedback'
-                                    onClick={toggleDrawer('right', true)}
-                                >
-                                    <ErrorOutlineOutlinedIcon
-                                        sx={{ fontSize: 32 }}
-                                        className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`}
-                                    />
-                                </IconButton>
+                                <ThemeProvider theme={theme}>
+                                    <Tooltip TransitionComponent={Zoom} title="Provide Feedback" disableInteractive>
+                                        <IconButton
+                                            aria-label='Provide Feedback'
+                                            onClick={toggleDrawer('right', true)}
+                                        >
+
+                                            <ErrorOutlineOutlinedIcon
+                                                sx={{ fontSize: 33 }}
+                                                className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`}
+                                            />
+                                        </IconButton>
+                                    </Tooltip>
+                                </ThemeProvider>
 
                                 {['right'].map((anchor) => (
                                     <React.Fragment key={anchor}>
@@ -199,9 +213,13 @@ function Home(props) {
                                                     </div>
 
                                                     <div>
-                                                        <IconButton onClick={toggleDrawer(anchor, false)}>
-                                                            <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
-                                                        </IconButton>
+                                                        <ThemeProvider theme={theme}>
+                                                            <Tooltip TransitionComponent={Zoom} title="Close" disableInteractive>
+                                                                <IconButton onClick={toggleDrawer(anchor, false)}>
+                                                                    <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                        </ThemeProvider>
                                                     </div>
                                                 </div>
 
@@ -256,25 +274,31 @@ function Home(props) {
                                             >
                                                 <div className='feedback-head'>
                                                     <div>
-                                                        <IconButton onClick={() => {
-                                                            setDrawerFeedback('flex')
-                                                            setDrawerReport('none')
-                                                            setFeedbackType('')
-                                                            formik.resetForm()
-                                                        }}>
-                                                            <ArrowBackIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
-                                                        </IconButton>
+                                                        <ThemeProvider theme={theme}>
+                                                            <Tooltip TransitionComponent={Zoom} title="Back" disableInteractive>
+                                                                <IconButton onClick={() => {
+                                                                    setDrawerFeedback('flex')
+                                                                    setDrawerReport('none')
+                                                                    setFeedbackType('')
+                                                                    formik.resetForm()
+                                                                }}>
+                                                                    <ArrowBackIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                        </ThemeProvider>
                                                     </div>
 
                                                     <div>
                                                         Report an issue
                                                     </div>
 
-                                                    <div>
-                                                        <IconButton onClick={toggleDrawer(anchor, false)}>
-                                                            <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
-                                                        </IconButton>
-                                                    </div>
+                                                    <ThemeProvider theme={theme}>
+                                                        <Tooltip TransitionComponent={Zoom} title="Close" disableInteractive>
+                                                            <IconButton onClick={toggleDrawer(anchor, false)}>
+                                                                <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </ThemeProvider>
                                                 </div>
 
                                                 <form onSubmit={formik.handleSubmit} className='feedback-body'>
@@ -327,25 +351,31 @@ function Home(props) {
                                             >
                                                 <div className='feedback-head'>
                                                     <div>
-                                                        <IconButton onClick={() => {
-                                                            setDrawerFeedback('flex')
-                                                            setDrawerSuggest('none')
-                                                            setFeedbackType('')
-                                                            formik.resetForm()
-                                                        }}>
-                                                            <ArrowBackIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
-                                                        </IconButton>
+                                                        <ThemeProvider theme={theme}>
+                                                            <Tooltip TransitionComponent={Zoom} title="Back" disableInteractive>
+                                                                <IconButton onClick={() => {
+                                                                    setDrawerFeedback('flex')
+                                                                    setDrawerSuggest('none')
+                                                                    setFeedbackType('')
+                                                                    formik.resetForm()
+                                                                }}>
+                                                                    <ArrowBackIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
+                                                                </IconButton>
+                                                            </Tooltip>
+                                                        </ThemeProvider>
                                                     </div>
 
                                                     <div>
                                                         Suggest an Idea
                                                     </div>
 
-                                                    <div>
-                                                        <IconButton onClick={toggleDrawer(anchor, false)}>
-                                                            <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
-                                                        </IconButton>
-                                                    </div>
+                                                    <ThemeProvider theme={theme}>
+                                                        <Tooltip TransitionComponent={Zoom} title="Close" disableInteractive>
+                                                            <IconButton onClick={toggleDrawer(anchor, false)}>
+                                                                <CloseIcon className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`} />
+                                                            </IconButton>
+                                                        </Tooltip>
+                                                    </ThemeProvider>
                                                 </div>
 
                                                 <form className='feedback-body'>
@@ -398,14 +428,18 @@ function Home(props) {
                         </div>
 
                         <div className='feedback-icon-div'>
-                            <FormControlLabel
-                                id='header-toggle-mode-btn'
-                                control={<MaterialUISwitch
-                                    checked={props.isDark}
-                                    aria-label='Toggle Mode'
-                                    onChange={props.toggleTheme}
-                                />}
-                            />
+                            <ThemeProvider theme={theme}>
+                                <Tooltip TransitionComponent={Zoom} title="Toggle Theme" disableInteractive>
+                                    <FormControlLabel
+                                        id='header-toggle-mode-btn'
+                                        control={<MaterialUISwitch
+                                            checked={props.isDark}
+                                            aria-label='Toggle Mode'
+                                            onChange={props.toggleTheme}
+                                        />}
+                                    />
+                                </Tooltip>
+                            </ThemeProvider>
                         </div>
                     </div>
                 </div>
@@ -413,7 +447,7 @@ function Home(props) {
                 {/* Body */}
 
                 <div id='home'>
-                    
+
                 </div>
 
                 {/* Footer */}
