@@ -187,7 +187,6 @@ function Home(props) {
                                             aria-label='Provide Feedback'
                                             onClick={toggleDrawer('right', true)}
                                         >
-
                                             <ErrorOutlineOutlinedIcon
                                                 sx={{ fontSize: 33 }}
                                                 className={`feedback-icons-${props.isDark ? 'dark' : 'light'}`}
@@ -225,7 +224,7 @@ function Home(props) {
 
                                                 <div className='feedback-body'>
                                                     <div className='feedback-img'>
-                                                        <img src={report} alt='Report' height='200px' />
+                                                        <img src={report} alt='Report' height='180px' />
                                                     </div>
 
                                                     <div

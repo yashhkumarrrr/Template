@@ -116,7 +116,7 @@
 }
 
 .feedback-box-light {
-    width: 90vw;
+    width: 80vw;
     height: 100vh;
     max-width: 350px;
     color: #232323;
@@ -125,7 +125,7 @@
 }
 
 .feedback-box-dark {
-    width: 90vw;
+    width: 80vw;
     height: 100vh;
     max-width: 350px;
     color: #dcdcdc;
@@ -322,7 +322,7 @@
 
 .footer {
     padding: 3px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     text-align: center;
 }
 
