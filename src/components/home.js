@@ -118,7 +118,7 @@ function Home(props) {
         validationSchema: validationSchema,
         onSubmit: () => {
             try {
-                axios.post('https://64869defbeba6297278ef763.mockapi.io/feedback', {
+                axios.post('https://66177575ed6b8fa43482b125.mockapi.io/yashhkumarrrr/api/feedback', {
                     webapp: appName,
                     type: feedbackType,
                     feedback: formik.values.feedback,
@@ -428,7 +428,7 @@ function Home(props) {
 
                         <div className='feedback-icon-div'>
                             <ThemeProvider theme={theme}>
-                                <Tooltip TransitionComponent={Zoom} title="Toggle Theme" disableInteractive>
+                                <Tooltip TransitionComponent={Zoom} title={props.isDark ? 'Light Mode' : 'Dark Mode'} disableInteractive>
                                     <FormControlLabel
                                         id='header-toggle-mode-btn'
                                         control={<MaterialUISwitch
@@ -452,14 +452,18 @@ function Home(props) {
                 {/* Footer */}
 
                 <div className='footer'>
-                    Developed by&nbsp;
-                    <Link
-                        target='_blank'
-                        id={`footer-link-${props.isDark ? 'dark' : 'light'}`}
-                        to='https://yashhkumarrrr.netlify.app'
-                    >
-                        &copy; yashhkumarrrr
-                    </Link>
+                    Developed by -&nbsp;
+                    <ThemeProvider theme={theme}>
+                        <Tooltip TransitionComponent={Zoom} title="Yash Kumar" disableInteractive>
+                            <Link
+                                target='_blank'
+                                id={`footer-link-${props.isDark ? 'dark' : 'light'}`}
+                                to='https://yashhkumarrrr.netlify.app'
+                            >
+                                yashhkumarrrr
+                            </Link>
+                        </Tooltip>
+                    </ThemeProvider>
                 </div>
 
                 <Snackbar open={isSnackbarOpen} autoHideDuration={1500} onClose={closeSnackbar}>
